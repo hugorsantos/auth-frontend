@@ -1,0 +1,65 @@
+<div class="hold-transition login-page">
+  <div class="login-box">
+    <!-- /.login-logo -->
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+      </div>
+      <div class="card-body">
+        <p class="login-box-msg">Entre para iniciar sua sessão</p>
+
+        <form #form="ngForm" (ngSubmit)="realizarLogin()" novalidate>
+          <div class="alert alert-error" role="alert" *ngIf="message">
+            <strong>Invalid email or password</strong>
+          </div>
+          <div class="input-group mb-3">
+            <input [(ngModel)]="loginModel.login"
+                   type="email"
+                   name="login"
+                   class="form-control"
+                   #loginForm="ngModel"
+                   placeholder="Email">
+            <span class="help-block" *ngIf="loginForm.invalid  && loginForm.dirty">Email is invalid </span>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input [(ngModel)]="loginModel.password"
+                   type="password"
+                   name="passwordForm"
+                   class="form-control"
+                   #passwordForm="ngModel"
+                   placeholder="Password">
+            <span class="help-block" *ngIf="passwordForm.invalid && passwordForm.dirty">Password is required</span>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                &nbsp;
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="submit" [disabled]="!form.valid" class="btn btn-primary btn-block">Acessar</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+
+
+
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.login-box -->
+</div>
